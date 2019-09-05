@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+const ReactMarkdown = require('react-markdown');
 
 
 
@@ -9,7 +10,7 @@ function ViewArticle({data}) {
         <div className="jumbotron">
             <h1 className="display-3">{data.title}</h1>
             <p className="display-4">{data.author[0].display}</p>
-            <p className="lead">{data.body}</p>
+            <p className="lead"><ReactMarkdown>{data.body}</ReactMarkdown></p>
             <hr className="my-4"/>
                 <p>Skapades {data.published_on} </p>
                 <p className="lead">
