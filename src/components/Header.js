@@ -1,15 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link,NavLink} from 'react-router-dom';
 
 const Header = ()=> (
     <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
         <div className='container'>
-            <Link to='/articleslist' className='navbar-brand '>
+            <NavLink to='/articleslist' className='navbar-brand '>
                 Sjömans loggbok
-            </Link>
+            </NavLink>
             <ul className='navbar-nav mr-auto'>
-                <li className='nav-item'><Link toto='/articleslist' className='nav-link'>Artiklar</Link></li>
-                <li className='nav-item'><Link toto='/articleslist' className='nav-link'>Författare</Link></li>
+                <li className='nav-item'><NavLink to='/articleslist' className='nav-link'>Artiklar</NavLink></li>
+                <li className='nav-item'><NavLink to='/authorslist' className='nav-link' >Författare</NavLink></li>
             </ul>
         </div>
     </nav>
