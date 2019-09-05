@@ -10,7 +10,8 @@ import axios from 'axios';
 function App() {
 
   const [articlesList,storeArticles] = useState([]);
-
+  //const [itemTitle,updateItemTitle] = useState('');
+  
   useEffect(()=>{
     const getCockpitArticles = async ()=>{
       const result = await axios.get('http://localhost:8080/api/collections/get/articles');
@@ -33,7 +34,23 @@ function App() {
               />
             )}
           />
-          <Route exact path='/article/:_id' component={ViewArticle} />
+          <Route 
+            exact path='/article/:_id' 
+            render={(props)=>{
+              console.log(props.match.params._id);
+              const itemId = props.match.params._id;
+              const selectedArticle = articlesList.filter(article => article._id === itemId);
+              //updateItemTitle(selectedArticle[0].title);
+              console.log( selectedArticle[0]);
+              
+              
+              return(
+                <ViewArticle
+                  data={selectedArticle[0]}
+                />
+              )
+            }} 
+          />
           <Route exact path='/authorslist' component={AuthorsList}/>
         </Switch>
       </main>
