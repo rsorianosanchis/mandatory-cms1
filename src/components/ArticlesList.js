@@ -1,8 +1,16 @@
-import React from 'react';
+import React,{Fragment} from 'react';
+import ArticleLi from './ArticleLi.js';
 
-function ArticlesList (){
+function ArticlesList ({articles}){
     return (
-        <h1 className='text-center'>Lista över artiklar</h1>
+        <Fragment>
+            <h1 className='text-center'>Lista över artiklar</h1>
+            <ul className='list-group mt-5'>
+                {articles.map(article=>(
+                    <ArticleLi article={article}/>
+                ))}
+            </ul>
+        </Fragment>
     )
 };
 

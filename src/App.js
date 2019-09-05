@@ -9,7 +9,7 @@ import axios from 'axios';
 
 function App() {
 
-  const [articles,storeArticles] = useState([]);
+  const [articlesList,storeArticles] = useState([]);
 
   useEffect(()=>{
     const getCockpitArticles = async ()=>{
@@ -25,7 +25,14 @@ function App() {
       <Header/>
       <main className='container mt-5'>
         <Switch>
-          <Route exact path='/articleslist' component={ArticlesList} />
+          <Route 
+            exact path='/articleslist' 
+            render={()=>(
+              <ArticlesList
+                articles={articlesList}
+              />
+            )}
+          />
           <Route exact path='/article/:_id' component={ViewArticle} />
           <Route exact path='/authorslist' component={AuthorsList}/>
         </Switch>
