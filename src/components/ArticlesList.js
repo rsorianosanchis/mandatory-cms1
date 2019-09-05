@@ -1,5 +1,5 @@
 import React,{Fragment} from 'react';
-import ArticleLi from './ArticleLi.js';
+import ArticleItem from './ArticleItem.js';
 
 function ArticlesList ({articles}){
     return (
@@ -7,7 +7,10 @@ function ArticlesList ({articles}){
             <h1 className='text-center'>Lista över artiklar</h1>
             <ul className='list-group mt-5'>
                 {articles.map(article=>(
-                    <ArticleLi article={article}/>
+                    <ArticleItem 
+                        key={article._id}
+                        article={article}
+                    />
                 ))}
             </ul>
         </Fragment>
