@@ -1,10 +1,10 @@
 import React from 'react';
 
-function ArticlesLista (){
+function ArticlesList (){
     return (
         <h1 className='text-center'>Lista över artiklar</h1>
     )
 };
 
-export default ArticlesLista;
+export default ArticlesList;
 

@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Lina Magassa",
+        "description": "Lina Magassas blogg inspirerar och reflekterar kring mode, livsstil, konst, musik, resor och det som \u00e4r v\u00e4rt att h\u00e5lla koll p\u00e5. Personlighet, trend, tidl\u00f6shet, medvetenhet \u00e4r ledord.",
+        "avatar": {
+            "path": "storage\/tmp\/img_5424.jpg"
+        },
+        "_mby": "5d6cfc1c303533001b000132",
+        "_by": "5d6cfc1c303533001b000132",
+        "_modified": 1567505988,
+        "_created": 1567500706,
+        "_id": "5d6e29a23035330027000045"
+    },
+    {
+        "name": "Lennart",
+        "description": " Som pension\u00e4r kan man planera sin tid vilket tar en hel del tid i sig men det blir en del \u00f6ver till annat. ",
+        "avatar": {
+            "path": "storage\/tmp\/IMG_7055.JPG"
+        },
+        "_mby": "5d6cfc1c303533001b000132",
+        "_by": "5d6cfc1c303533001b000132",
+        "_modified": 1567507523,
+        "_created": 1567507387,
+        "_id": "5d6e43bb303533002b00035e"
+    },
+    {
+        "name": "Daniel Fog",
+        "description": "Jag heter Daniel och som m\u00e5nga m\u00e4nniskor d\u00e4r ute har jag alltid f\u00e5tt n\u00e5got dr\u00f6mskt i blicken vid \u00e5synen av flygplan i skyn. ",
+        "avatar": {
+            "path": "storage\/tmp\/img_20190710_155517.jpg"
+        },
+        "_mby": "5d6cfc1c303533001b000132",
+        "_by": "5d6cfc1c303533001b000132",
+        "_modified": 1567507982,
+        "_created": 1567507982,
+        "_id": "5d6e460e303533002200022e"
+    },
+    {
+        "name": "Liz Clrak",
+        "description": "WE ARE ONE! Nature, humanity, and all life on Earth are inextricably and fantastically connected. Seeking to understand and participate in this Greatness is not only a path to immense personal fulfillment, but also to healthy, peaceful planet and a populace that could exist in harmony with nature!",
+        "avatar": {
+            "path": "storage\/tmp\/10420326_10152178972512396_1836779820660385803_n.jpg"
+        },
+        "_mby": "5d6cfc1c303533001b000132",
+        "_by": "5d6cfc1c303533001b000132",
+        "_modified": 1567508503,
+        "_created": 1567508451,
+        "_id": "5d6e47e3303533002b0003a5"
+    },
+    {
+        "name": "Brittany Scott",
+        "description": "We are Brittany, Scott, Isla (eye-la), Haven and Mira (meer-uh) - the estrogen-rich family that is behind Windtraveler.  \n",
+        "avatar": {
+            "path": "storage\/tmp\/brittscott2.png.png"
+        },
+        "_mby": "5d6cfc1c303533001b000132",
+        "_by": "5d6cfc1c303533001b000132",
+        "_modified": 1567508866,
+        "_created": 1567508866,
+        "_id": "5d6e4982303533002b0001f1"
+    }
+]
