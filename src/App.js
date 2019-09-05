@@ -10,11 +10,14 @@ function App() {
   return (
     <Router>
       <Header/>
-      <Switch>
-        <Route exact path='/articleslist' component={ArticlesList} />
-        <Route exact path='/articleslist/:_id' component={ViewArticle} />
-        <Route exact path='/authorslist' component={AuthorsList}/>
-      </Switch>
+      <main className='container mt-5'>
+        <Switch>
+          <Route exact path='/articleslist' component={ArticlesList} />
+          <Route exact path='/articleslist/:_id' component={ViewArticle} />
+          <Route exact path='/authorslist' component={AuthorsList}/>
+        </Switch>
+      </main>
+      <p className='mt-4 p2 text-center'>rsorianosanchis@gmail.com</p>
     </Router>
   );
 }
