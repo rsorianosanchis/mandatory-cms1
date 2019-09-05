@@ -1,10 +1,20 @@
-import React from 'react';
+import React,{Fragment} from 'react';
+import AuthorItem from './AuthorItem.js';
 
 
-function AuthorsList (){
+function AuthorsList ({authors}){
     return(
-        <h1 className='text-center'>Lista med författare</h1>
-        
+        <Fragment>
+            <h1 className='text-center'>Lista med författare</h1>
+            <div className='list-group mt-5'>
+                {authors.map(author => (
+                    <AuthorItem
+                        key={author._id}
+                        author={author}
+                    />
+                ))}
+            </div>
+        </Fragment>
     )
 }
 

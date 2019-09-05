@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 
 function ViewArticle({data}) {
-    console.log(data);
     
     return (
         <div className="jumbotron">
-            <h1 className="display-3">{}</h1>
-            <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <h1 className="display-3">{data.title}</h1>
+            <p className="display-4">{data.author[0].display}</p>
+            <p className="lead">{data.body}</p>
             <hr className="my-4"/>
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p>Skapades {data.published_on} </p>
                 <p className="lead">
-                <Link to={`/articleslist`} className="btn btn-primary btn-lg"  role="button">Learn more</Link>
+                <Link to={`/articleslist`} className="btn btn-outline-success"  role="button">Gå ut</Link>
                 </p>
         </div>
     )

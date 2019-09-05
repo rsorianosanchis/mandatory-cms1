@@ -10,7 +10,7 @@ import axios from 'axios';
 function App() {
 
   const [articlesList,storeArticles] = useState([]);
-  //const [itemTitle,updateItemTitle] = useState('');
+  const [authorsList,storeAuthors] = useState([]);
   
   useEffect(()=>{
     const getCockpitArticles = async ()=>{
@@ -18,7 +18,14 @@ function App() {
       console.log(result.data.entries);
       storeArticles(result.data.entries);
     }
+    const getCockpitAuthors = async () => {
+      const result = await axios.get('http://localhost:8080/api/collections/get/authors');
+      console.log(result.data.entries);
+      console.log(result.data.entries[0].avatar.path);
+      storeAuthors(result.data.entries);
+    }
     getCockpitArticles();
+    getCockpitAuthors();
   },[]);
 
   return (
@@ -51,7 +58,14 @@ function App() {
               )
             }} 
           />
-          <Route exact path='/authorslist' component={AuthorsList}/>
+          <Route 
+            exact path='/authorslist' 
+            render={() => (
+              <AuthorsList
+                authors={authorsList}
+              />
+            )}
+          />
         </Switch>
       </main>
       <p className='mt-4 p2 text-center'>rsorianosanchis@gmail.com</p>
