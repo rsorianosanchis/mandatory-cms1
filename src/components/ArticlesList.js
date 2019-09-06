@@ -1,24 +1,18 @@
-import React,{Fragment} from 'react';
+import React,{Fragment,useState,useEffect} from 'react';
 import ArticleItem from './ArticleItem.js';
 
-function ArticlesList ({articles}){
+function ArticlesList ({articles,loading}){
+    if(loading){
+        return (
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+            </div>
+        )
+    }
+    
     return (
         <Fragment>
             <h1 className='text-center'>Lista över artiklar</h1>
-            <form>
-                <fieldset>
-                    <div class="form-group">
-                        <label for="exampleSelect1">Artiklar per sidan</label>
-                        <select className="form-control" id="exampleSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </fieldset>
-            </form>
             <ul className='list-group mt-5'>
                 {articles.map(article=>(
                     <ArticleItem 

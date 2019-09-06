@@ -11,14 +11,20 @@ function App() {
 
   const [articlesList,storeArticles] = useState([]);
   const [authorsList,storeAuthors] = useState([]);
+  const [loading,setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
   //Vi sätter mgnd 3 som default
-  const [activePage,pageNumber] = useState(3);
+
   
   useEffect(()=>{
+
     const getCockpitArticles = async ()=>{
+      setLoading(true);
       const result = await axios.get('http://localhost:8080/api/collections/get/articles');
       console.log(result.data.entries);
       storeArticles(result.data.entries);
+      setLoading(false);
     }
     const getCockpitAuthors = async () => {
       const result = await axios.get('http://localhost:8080/api/collections/get/authors');
@@ -40,6 +46,7 @@ function App() {
             render={()=>(
               <ArticlesList
                 articles={articlesList}
+                loading={loading}
               />
             )}
           />
