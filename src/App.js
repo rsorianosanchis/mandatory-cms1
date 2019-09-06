@@ -11,6 +11,8 @@ function App() {
 
   const [articlesList,storeArticles] = useState([]);
   const [authorsList,storeAuthors] = useState([]);
+  //Vi sätter mgnd 3 som default
+  const [activePage,pageNumber] = useState(3);
   
   useEffect(()=>{
     const getCockpitArticles = async ()=>{
@@ -47,10 +49,8 @@ function App() {
               console.log(props.match.params._id);
               const itemId = props.match.params._id;
               const selectedArticle = articlesList.filter(article => article._id === itemId);
-              //updateItemTitle(selectedArticle[0].title);
               console.log( selectedArticle[0]);
-              
-              
+                           
               return(
                 <ViewArticle
                   data={selectedArticle[0]}
