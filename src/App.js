@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import ArticlesList from './components/ArticlesList.js';
+import Pagination from './components/Pagination.js';
 import AuthorsList from './components/AuthorsList.js';
 import ViewArticle from './components/ViewArticle.js';
 import Header from './components/Header.js';
@@ -40,6 +41,8 @@ function App() {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentArticles = articlesList.slice(indexOfFirstPost, indexOfLastPost)
+  //change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <Router>
@@ -49,10 +52,18 @@ function App() {
           <Route 
             exact path='/articleslist' 
             render={()=>(
-              <ArticlesList
-                articles={currentArticles}
-                loading={loading}
-              />
+              <div>
+                <ArticlesList
+                  articles={currentArticles}
+                  loading={loading}
+                />
+                <Pagination
+                  postsPerPage = {postsPerPage}
+                  totalPosts = {articlesList.length}
+                  paginate = {paginate}
+
+                />
+              </div>
             )}
           />
           <Route 
