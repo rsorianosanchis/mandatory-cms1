@@ -13,8 +13,9 @@ function App() {
   const [authorsList,storeAuthors] = useState([]);
   const [loading,setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  //Vi sätter antal 10 som default
   const [postsPerPage, setPostsPerPage] = useState(10);
-  //Vi sätter mgnd 3 som default
+  
 
   
   useEffect(()=>{
@@ -35,6 +36,10 @@ function App() {
     getCockpitArticles();
     getCockpitAuthors();
   },[]);
+  //get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentArticles = articlesList.slice(indexOfFirstPost, indexOfLastPost)
 
   return (
     <Router>
@@ -45,7 +50,7 @@ function App() {
             exact path='/articleslist' 
             render={()=>(
               <ArticlesList
-                articles={articlesList}
+                articles={currentArticles}
                 loading={loading}
               />
             )}
