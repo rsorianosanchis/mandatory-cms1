@@ -15,27 +15,33 @@ function App() {
   const [loading,setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   //Vi sätter antal 10 som default
-  const [postsPerPage, setPostsPerPage] = useState(10);
-  
+  const [postsPerPage] = useState(5);
+  //jag vill göra att use effect kör liksom componentWillMount, men useEffect påverkar hella tiden :(
+  const [firstRender, setRenderStatus] = useState(true);
 
   
   useEffect(()=>{
-
-    const getCockpitArticles = async ()=>{
-      setLoading(true);
-      const result = await axios.get('http://localhost:8080/api/collections/get/articles');
-      console.log(result.data.entries);
-      storeArticles(result.data.entries);
-      setLoading(false);
-    }
-    const getCockpitAuthors = async () => {
-      const result = await axios.get('http://localhost:8080/api/collections/get/authors');
-      console.log(result.data.entries);
-      console.log(result.data.entries[0].avatar.path);
-      storeAuthors(result.data.entries);
-    }
-    getCockpitArticles();
-    getCockpitAuthors();
+    
+      const getCockpitArticles = async ()=>{
+        if (firstRender === true) {
+          setLoading(true);
+          const result = await axios.get('http://localhost:8080/api/collections/get/articles');
+          console.log(result.data.entries);
+          storeArticles(result.data.entries);
+          setLoading(false);
+          setRenderStatus(false)
+        }
+      }
+      const getCockpitAuthors = async () => {
+        const result = await axios.get('http://localhost:8080/api/collections/get/authors');
+        console.log(result.data.entries);
+        console.log(result.data.entries[0].avatar.path);
+        storeAuthors(result.data.entries);
+      }
+      getCockpitArticles();
+      getCockpitAuthors();
+      
+    
   },[]);
   //get current posts
   const indexOfLastPost = currentPage * postsPerPage;
@@ -50,9 +56,9 @@ function App() {
       <main className='container mt-5'>
         <Switch>
           <Route 
-            exact path='/articleslist' 
+            exact path='/' 
             render={()=>(
-              <div>
+              <div className= 'container mt-5'>
                 <ArticlesList
                   articles={currentArticles}
                   loading={loading}
@@ -67,7 +73,7 @@ function App() {
             )}
           />
           <Route 
-            exact path='/article/:_id' 
+            path='/article/:_id' 
             render={(props)=>{
               console.log(props.match.params._id);
               const itemId = props.match.params._id;
@@ -82,7 +88,7 @@ function App() {
             }} 
           />
           <Route 
-            exact path='/authorslist' 
+            path='/authorslist' 
             render={() => (
               <AuthorsList
                 authors={authorsList}

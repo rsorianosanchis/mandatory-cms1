@@ -1,10 +1,10 @@
-import React,{Fragment,useState,useEffect} from 'react';
+import React,{Fragment} from 'react';
 import ArticleItem from './ArticleItem.js';
 
 function ArticlesList ({articles,loading}){
     if(loading){
         return (
-            <div class="progress">
+            <div className="progress">
                 <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" >Loading ...</div>
             </div>
         )

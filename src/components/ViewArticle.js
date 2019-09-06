@@ -14,7 +14,7 @@ function ViewArticle({data}) {
             <hr className="my-4"/>
                 <p>Skapades {data.published_on} </p>
                 <p className="lead">
-                <Link to={`/articleslist`} className="btn btn-outline-success"  role="button">Gå ut</Link>
+                <Link to={`/`} className="btn btn-outline-success"  role="button">Gå ut</Link>
                 </p>
         </div>
     )
