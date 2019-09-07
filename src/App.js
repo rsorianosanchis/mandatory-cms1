@@ -14,23 +14,17 @@ function App() {
   const [authorsList,storeAuthors] = useState([]);
   const [loading,setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  
-  const [postsPerPage] = useState(5);
-  
-  const [firstRender, setRenderStatus] = useState(true);
-
-  
+  //
+  // select default antal per page,6
+  const [postsPerPage] = useState(6);
+  //
   useEffect(()=>{
-    
-      const getCockpitArticles = async ()=>{
-        if (firstRender === true) {
-          setLoading(true);
-          const result = await axios.get('http://localhost:8080/api/collections/get/articles');
-          console.log(result.data.entries);
-          storeArticles(result.data.entries);
-          setLoading(false);
-          setRenderStatus(false)
-        }
+      const getCockpitArticles = async ()=>{    
+        setLoading(true);
+        const result = await axios.get('http://localhost:8080/api/collections/get/articles');
+        console.log(result.data.entries);
+        storeArticles(result.data.entries);
+        setLoading(false);
       }
       const getCockpitAuthors = async () => {
         const result = await axios.get('http://localhost:8080/api/collections/get/authors');
@@ -39,10 +33,9 @@ function App() {
         storeAuthors(result.data.entries);
       }
       getCockpitArticles();
-      getCockpitAuthors();
-      
-    
+      getCockpitAuthors();   
   },[]);
+  //
   //get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
