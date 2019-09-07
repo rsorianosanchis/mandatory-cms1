@@ -14,11 +14,9 @@ function App() {
   const [authorsList,storeAuthors] = useState([]);
   const [loading,setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  //Vi sätter antal 10 som default
+  
   const [postsPerPage] = useState(5);
-  //jag vill göra att use effect kör liksom componentWillMount men funkar inte, :(
-  //när man klikar på next sidan i pagination, det faktisk renderas men försvinner direkt senare.
-  //systemet förstår att är alltid en ny data och byggas sidan en till. :(
+  
   const [firstRender, setRenderStatus] = useState(true);
 
   
