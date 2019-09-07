@@ -16,7 +16,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   //
   // select default antal per page,6
-  const [postsPerPage] = useState(6);
+  const [postsPerPage,setPostsPerPage] = useState(5);
   //
   useEffect(()=>{
       const getCockpitArticles = async ()=>{    
@@ -42,6 +42,7 @@ function App() {
   const currentArticles = articlesList.slice(indexOfFirstPost, indexOfLastPost)
   //change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const setAntal = (antal) => setPostsPerPage (antal);
 
   return (
     <Router>
@@ -60,6 +61,7 @@ function App() {
                   postsPerPage = {postsPerPage}
                   totalPosts = {articlesList.length}
                   paginate = {paginate}
+                  setAntal = {setAntal}
 
                 />
               </div>
